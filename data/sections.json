@@ -2815,7 +2815,22 @@
                 "updated": "2026-10-12",
                 "snapshot": "2026-10-13"
               }
-            }
+            },
+            {
+  "name": "Future AGI",
+  "repo": "future-agi/future-agi",
+  "org": "Future AGI",
+  "desc": "Self-hostable agent evaluation, tracing, and simulation platform whose Go OpenAI-compatible gateway runs inline guardrails over model traffic (PII, secrets, prompt injection, system-prompt extraction, MCP and tool permissions, topic, and content policy), with adapters for third-party guardrail services.",
+  "license": "Apache-2.0",
+  "status": ["open_source", "commercial_open"],
+  "flags": ["commercial_features", "requires_api_key", "heavy_runtime", "telemetry", "model_dependent"],
+  "note": "**Caveat:** core is Apache-2.0; `futureagi/ee/` is under a separate commercial license (`LICENSE-EE`). Gateway guardrails are disabled in the default config and fail open on scanner timeout or error unless `fail_open: false` is set. The injection and hallucination scanners are pattern and rule based; the `futureagi` scanner posts checked text to an external evaluation API, and the vendor adapters hand off to third-party guardrail services, so those verdicts depend on the provider's models and credentials. The default self-hosted install is a lightweight Standalone stack (app, Postgres, ClickHouse); the Distributed deployment is a larger multi-service stack that adds Redis, Kafka, Temporal, MinIO and PeerDB-based change-data-capture, among other services. Self-hosted installs send deployment telemetry by default: a one-time registration with instance ID, version, deployment type, timestamp, a telemetry-disabled flag, and the email addresses and domains of owner, admin, staff and superuser accounts, then aggregate usage counts every 6 hours (no prompts, outputs, traces, datasets or keys). `./bin/install --no-telemetry` or `FUTURE_AGI_TELEMETRY_DISABLED=true` stops sending email addresses and usage counts but still sends one minimal registration (instance ID, version, deployment type, timestamp, telemetry-disabled flag); block `api.futureagi.com` to send nothing.",
+  "related": [
+    {"label": "Portkey AI Gateway", "url": "https://github.com/Portkey-AI/gateway"},
+    {"label": "Bifrost", "url": "https://github.com/maximhq/bifrost"}
+  ],
+  "metrics": {"stars": 2182, "updated": "2026-10-19", "snapshot": "2026-10-20"}
+}
           ]
         }
       ]
