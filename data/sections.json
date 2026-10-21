@@ -2815,6 +2815,54 @@
                 "updated": "2026-10-12",
                 "snapshot": "2026-10-13"
               }
+            },
+            {
+              "name": "Future AGI",
+              "repo": "future-agi/future-agi",
+              "org": "Future AGI",
+              "desc": "Self-hostable evaluation and tracing platform with an OpenAI-compatible Go gateway for inline model-traffic checks, MCP/tool permissions and optional external guardrail services.",
+              "license": "Apache-2.0",
+              "status": [
+                "open_source",
+                "commercial_open"
+              ],
+              "flags": [
+                "commercial_features",
+                "requires_api_key",
+                "heavy_runtime",
+                "telemetry",
+                "model_dependent"
+              ],
+              "note": "**Caveat:** the core is Apache-2.0; enterprise components have a separate commercial license. Gateway guardrails are disabled by default, and scanner timeout/panic handling defaults to fail-open. Setting `fail_open: false` does not fix every permissive path: the Future AGI adapter also passes missing credentials/evaluation IDs or empty evaluation results. Local injection/hallucination checks are heuristic, not factuality guarantees; external adapters send checked text to credentialed provider services. Self-hosting requires a multi-component database/application stack. Deployment telemetry defaults to account emails/domains for owners/admins/staff/superusers, instance metadata, aggregate usage and actor-journey events. `FUTURE_AGI_TELEMETRY_DISABLED=true` still permits a minimal registration containing instance ID, version, deployment type, timestamp and the disabled flag; preventing that contact requires an egress restriction on the telemetry endpoint (default `api.futureagi.com`), which can also affect optional vendor evaluations.",
+              "sources": [
+                {
+                  "label": "Guardrail defaults",
+                  "url": "https://github.com/future-agi/future-agi/blob/d3e2db1c725172f3a3a294d8628139508f3af003/agentcc-gateway/internal/config/config.go"
+                },
+                {
+                  "label": "Adapter skip paths",
+                  "url": "https://github.com/future-agi/future-agi/blob/d3e2db1c725172f3a3a294d8628139508f3af003/agentcc-gateway/internal/guardrails/futureagi/futureagi.go"
+                },
+                {
+                  "label": "Telemetry behavior",
+                  "url": "https://github.com/future-agi/future-agi/blob/d3e2db1c725172f3a3a294d8628139508f3af003/futureagi/tfc/deployment_telemetry/sender.py"
+                }
+              ],
+              "related": [
+                {
+                  "label": "Portkey AI Gateway",
+                  "url": "https://github.com/Portkey-AI/gateway"
+                },
+                {
+                  "label": "Bifrost",
+                  "url": "https://github.com/maximhq/bifrost"
+                }
+              ],
+              "metrics": {
+                "stars": 2185,
+                "updated": "2026-10-19",
+                "snapshot": "2026-10-21"
+              }
             }
           ]
         }
