@@ -1,5 +1,7 @@
 # Awesome AI Security Tools [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
+<a href="https://trendshift.io/repositories/87988?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-87988" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/87988/daily?language=Python" alt="scadastrangelove/awesome-ai-security-tools | Trendshift" width="250" height="55"/></a>
+
 > A curated list of **public-source, research, and commercial** tools for AI security and AI-assisted cybersecurity — autotriage, agent security, AI/ML supply chain, pentest agents, AI SAST, LLM-driven fuzzing, threat intelligence, SOC/SIEM triage, reverse engineering, LLM red-teaming, and more.
 
 [![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
