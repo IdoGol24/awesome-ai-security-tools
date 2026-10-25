@@ -1190,6 +1190,42 @@
               }
             },
             {
+              "name": "InjecAgent",
+              "repo": "uiuc-kang-lab/InjecAgent",
+              "desc": "ACL Findings 2024 benchmark of indirect prompt injection against tool-integrated LLM agents, with 1,054 cases spanning 17 user tools and 62 attacker tools.",
+              "license": "MIT",
+              "status": [
+                "open_source",
+                "research"
+              ],
+              "flags": [
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "note": "— **note:** historical research reference with no default-branch commits since July 2024; evaluates agent responses to simulated tool outputs rather than production enforcement, and reproduction needs compatible local models or hosted-model credentials.",
+              "sources": [
+                {
+                  "label": "InjecAgent paper",
+                  "url": "https://aclanthology.org/2024.findings-acl.624/"
+                }
+              ],
+              "related": [
+                {
+                  "label": "AgentDojo",
+                  "url": "https://github.com/ethz-spylab/agentdojo"
+                },
+                {
+                  "label": "Agent Security Bench (ASB)",
+                  "url": "https://github.com/agiresearch/ASB"
+                }
+              ],
+              "metrics": {
+                "stars": 180,
+                "updated": "2024-07-02",
+                "snapshot": "2026-10-26"
+              }
+            },
+            {
               "name": "Skill-Inject",
               "repo": "aisa-group/skill-inject",
               "desc": "Benchmark for measuring prompt-injection vulnerabilities carried by agent skill files across Claude Code, Codex CLI, and Gemini CLI under multiple safety-policy conditions.",
@@ -3159,6 +3195,32 @@
           }
         },
         {
+          "name": "model-transparency (model-signing)",
+          "repo": "sigstore/model-transparency",
+          "org": "Sigstore",
+          "desc": "Python library and CLI for signing and verifying ML model artifact manifests with Sigstore, signing keys, certificates, or PKCS#11-backed keys.",
+          "license": "Apache-2.0",
+          "status": [
+            "open_source"
+          ],
+          "note": "— **note:** verification requires a trusted signer identity and issuer, key, or certificate; signatures establish artifact integrity and signer authenticity, not freedom from backdoors or unsafe model behavior.",
+          "related": [
+            {
+              "label": "OpenSSF Model Signing Specification",
+              "url": "https://github.com/ossf/model-signing-spec"
+            },
+            {
+              "label": "model-provenance-kit",
+              "url": "https://github.com/cisco-ai-defense/model-provenance-kit"
+            }
+          ],
+          "metrics": {
+            "stars": 249,
+            "updated": "2026-10-23",
+            "snapshot": "2026-10-26"
+          }
+        },
+        {
           "name": "model-provenance-kit",
           "repo": "cisco-ai-defense/model-provenance-kit",
           "org": "Cisco AI Defense",
@@ -5113,6 +5175,42 @@
           }
         },
         {
+          "name": "Clarity",
+          "repo": "microsoft/clarity-agent",
+          "org": "Microsoft",
+          "desc": "Design-time companion to RAMPART with desktop, web, CLI, and embedded workflows for structured requirements, threat analysis, and failure-mode reasoning about agentic systems.",
+          "license": "MIT",
+          "status": [
+            "open_source"
+          ],
+          "flags": [
+            "early_stage",
+            "model_dependent"
+          ],
+          "note": "— **note:** model-assisted design workflow, not a vulnerability scanner or runtime control; hosted-provider modes require credentials or provider login and send project context to the configured model.",
+          "sources": [
+            {
+              "label": "Microsoft Security announcement",
+              "url": "https://www.microsoft.com/en-us/security/blog/2026/05/20/introducing-rampart-and-clarity-open-source-tools-to-bring-safety-into-agent-development-workflow/"
+            }
+          ],
+          "related": [
+            {
+              "label": "RAMPART",
+              "url": "https://github.com/microsoft/RAMPART"
+            },
+            {
+              "label": "STRIDE GPT",
+              "url": "https://github.com/mrwadams/stride-gpt"
+            }
+          ],
+          "metrics": {
+            "stars": 275,
+            "updated": "2026-09-17",
+            "snapshot": "2026-10-26"
+          }
+        },
+        {
           "name": "STRIDE GPT",
           "repo": "mrwadams/stride-gpt",
           "org": "Matthew Adams",
@@ -6857,15 +6955,27 @@
               "name": "PurpleLlama",
               "repo": "meta-llama/PurpleLlama",
               "org": "Meta",
-              "desc": "Llama Guard classifiers, CodeShield, and CyberSecEval.",
+              "desc": "Safety tooling including Llama Guard classifiers, CodeShield, CyberSecEval, and LlamaFirewall's configurable prompt, code, and alignment scanner pipelines.",
               "status": [
                 "open_source"
               ],
               "metrics": {
-                "stars": 4427,
+                "stars": 4448,
                 "updated": "2026-10-12",
-                "snapshot": "2026-10-13"
-              }
+                "snapshot": "2026-10-26"
+              },
+              "license": "Component-specific licenses; LlamaFirewall code MIT, model weights under separate terms",
+              "flags": [
+                "license_caveat",
+                "model_dependent"
+              ],
+              "note": "— **note:** LlamaFirewall's MIT code license does not cover all bundled projects or model weights; model-backed checks require separate model/provider setup and do not guarantee resistance to adaptive prompt injection.",
+              "related": [
+                {
+                  "label": "LlamaFirewall",
+                  "url": "https://github.com/meta-llama/PurpleLlama/tree/main/LlamaFirewall"
+                }
+              ]
             },
             {
               "name": "LLAMATOR",
@@ -7098,8 +7208,8 @@
                   "url": "https://github.com/liu00222/Open-Prompt-Injection"
                 },
                 {
-                  "label": "Prompt Guard 86M",
-                  "url": "https://huggingface.co/meta-llama/Prompt-Guard-86M"
+                  "label": "Llama Prompt Guard 2 86M",
+                  "url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M"
                 },
                 {
                   "label": "Tensor Trust game/data tooling (historical; separate data, dependencies and deployment need review)",
@@ -7340,6 +7450,43 @@
                 "stars": 1080,
                 "updated": "2026-02-19",
                 "snapshot": "2026-10-13"
+              }
+            },
+            {
+              "name": "AgentPoison",
+              "repo": "AI-secure/AgentPoison",
+              "desc": "NeurIPS 2024 research implementation of backdoor attacks on LLM agents through poisoned long-term memory or RAG knowledge bases and optimized retrieval triggers.",
+              "license": "MIT",
+              "status": [
+                "open_source",
+                "research"
+              ],
+              "flags": [
+                "heavy_runtime",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "note": "— **note:** research artifact with GPU/model-checkpoint and dataset setup; external model and dataset licenses apply separately, hosted-model modes need credentials and transmit experiment content, and agent experiments belong in isolated authorized environments.",
+              "sources": [
+                {
+                  "label": "AgentPoison paper",
+                  "url": "https://arxiv.org/abs/2407.12784"
+                }
+              ],
+              "related": [
+                {
+                  "label": "Agent Security Bench (ASB)",
+                  "url": "https://github.com/agiresearch/ASB"
+                },
+                {
+                  "label": "Agent Memory Guard",
+                  "url": "https://github.com/OWASP/www-project-agent-memory-guard"
+                }
+              ],
+              "metrics": {
+                "stars": 250,
+                "updated": "2026-10-23",
+                "snapshot": "2026-10-26"
               }
             },
             {
@@ -7619,11 +7766,11 @@
             },
             {
               "kind": "hf_model",
-              "name": "Prompt Guard 86M",
-              "model": "meta-llama/Prompt-Guard-86M",
+              "name": "Llama Prompt Guard 2 86M",
+              "model": "meta-llama/Llama-Prompt-Guard-2-86M",
               "org": "Meta",
-              "desc": "Meta prompt-injection and jailbreak classifier from the Llama Guard family.",
-              "license": "Llama 3.1",
+              "desc": "Meta's multilingual binary classifier for detecting explicit prompt-injection and jailbreak attempts.",
+              "license": "Llama 4 Community License",
               "access": "gated manual",
               "artifacts": "Safetensors",
               "status": [
@@ -7631,7 +7778,8 @@
               ],
               "flags": [
                 "license_caveat"
-              ]
+              ],
+              "note": "— **note:** 512-token context window requires segmentation of longer inputs; adaptive attacks and application-specific distribution shifts can bypass detection, so use as one defense layer rather than a security boundary."
             },
             {
               "kind": "hf_model",
@@ -8118,10 +8266,20 @@
             "research"
           ],
           "metrics": {
-            "stars": 702,
-            "updated": "2026-10-13",
-            "snapshot": "2026-10-13"
-          }
+            "stars": 717,
+            "updated": "2026-10-23",
+            "snapshot": "2026-10-26"
+          },
+          "flags": [
+            "license_caveat"
+          ],
+          "note": "— **note:** benchmark-specific licenses apply; AgentHarm uses MIT with an additional restriction permitting its dataset and benchmark only for improving AI safety and security, and its scores are not an overall measure of agent safety.",
+          "related": [
+            {
+              "label": "AgentHarm (official Inspect implementation; purpose-restricted license)",
+              "url": "https://github.com/UKGovernmentBEIS/inspect_evals/tree/main/src/inspect_evals/agentharm"
+            }
+          ]
         },
         {
           "name": "BountyBench",
@@ -8327,6 +8485,45 @@
             "stars": 950,
             "updated": "2026-08-28",
             "snapshot": "2026-10-13"
+          }
+        },
+        {
+          "name": "SEC-bench",
+          "repo": "SEC-bench/SEC-bench",
+          "org": "UIUC / Purdue University",
+          "desc": "Research framework for constructing reproducible real-world software vulnerability instances from CVE/OSV reports and evaluating LLM agents on proof-of-concept generation and patching.",
+          "license": "MIT",
+          "status": [
+            "open_source",
+            "research"
+          ],
+          "flags": [
+            "heavy_runtime",
+            "requires_api_key",
+            "model_dependent",
+            "authorized_testing_only"
+          ],
+          "note": "— **note:** requires Docker, configured model/API credentials, and substantial storage (>200 GB recommended); executes vulnerable code and generated PoCs, so use isolated authorized environments and review what source/report content is sent to model providers.",
+          "sources": [
+            {
+              "label": "SEC-bench paper",
+              "url": "https://arxiv.org/abs/2506.11791"
+            }
+          ],
+          "related": [
+            {
+              "label": "CVE-Bench",
+              "url": "https://github.com/uiuc-kang-lab/cve-bench"
+            },
+            {
+              "label": "Cybench",
+              "url": "https://github.com/andyzorigin/cybench"
+            }
+          ],
+          "metrics": {
+            "stars": 104,
+            "updated": "2026-01-27",
+            "snapshot": "2026-10-26"
           }
         },
         {
